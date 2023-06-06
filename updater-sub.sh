@@ -37,7 +37,7 @@ if [[ "$strError" == "$strCap" ]]; then
 
 	str2doCheck=$(nginx -t 2>&1 | grep -o ok )
 
-	#Chequea si tod0 esta correcto.
+	#Chequea si t0d0 esta correcto.
 	if [[ "ok" = "$str2doCheck" ]]; then
 		echo "Todo cool"
 	else
