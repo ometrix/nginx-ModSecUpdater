@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+   echo "Este script debe ejecutarse como root"
+   exit 1
+fi
+
 # Define el error a buscar
 strError='[emerg] module "/etc/nginx/modules/ngx_http_modsecurity_module.so" version'
 
@@ -41,12 +46,10 @@ if [[ "$strError" == "$strCap" ]]; then
 	if [[ "ok" = "$str2doCheck" ]]; then
 		echo "Todo cool"
 	else
-		echo "Todo Nada Cool"
+		echo "Nada Cool"
 	fi
 elif [[ "ok" = "$strOK" ]]; then
 	echo "Todo cool"
 else
-	echo "Todo Nada Cool"
+	echo "Mala evaluación"
 fi
-
-
